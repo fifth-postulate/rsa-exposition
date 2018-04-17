@@ -41,6 +41,8 @@ git fetch starter
 git rebase starter/master
 ```
 
+You might need to resolve merge conflicts, depending on how you setup your repository.
+
 ### Start working
 You can alter the presentation in the `docs/presentation.md` markdown file. Once
 your changes are committed and pushed, the are automatically reflected in the
