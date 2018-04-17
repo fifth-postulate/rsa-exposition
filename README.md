@@ -41,7 +41,7 @@ git fetch starter
 git rebase starter/master
 ```
 
-You might need to resolve merge conflicts, depending on how you setup your repository.
+You might need to [resolve merge conflicts][conflict], depending on how you setup your repository.
 
 ### Start working
 You can alter the presentation in the `docs/presentation.md` markdown file. Once
@@ -62,4 +62,5 @@ python -m SimpleHTTPServer
 [remote]: https://help.github.com/articles/adding-a-remote/
 [fetch]: https://help.github.com/articles/fetching-a-remote/#fetch
 [rebase]: https://help.github.com/articles/about-git-rebase/
+[conflict]: https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
 [pages]: https://pages.github.com/
