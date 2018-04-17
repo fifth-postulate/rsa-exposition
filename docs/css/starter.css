@@ -1,0 +1,15 @@
+.geometry img {
+    width: 400px;
+    height: 400px;
+}
+
+.small.geometry {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.small.geometry img {
+    width: 100px;
+    height: 100px;
+}
