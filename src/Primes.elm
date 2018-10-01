@@ -1,4 +1,4 @@
-module Primes exposing (LazyList, filter, integers, take)
+module Primes exposing (LazyList, primes, take)
 
 
 type LazyList a
@@ -57,3 +57,31 @@ filter predicate lazyList =
 
             else
                 filter predicate xs
+
+
+sieve : LazyList Int -> LazyList Int
+sieve lazyList =
+    case lazyList of
+        Empty ->
+            Empty
+
+        Promise g ->
+            let
+                generator _ =
+                    sieve (g ())
+            in
+            Promise generator
+
+        Cons p ps ->
+            let
+                tail =
+                    ps
+                        |> filter (\n -> modBy p n /= 0)
+                        |> sieve
+            in
+            Cons p tail
+
+
+primes : LazyList Int
+primes =
+    sieve <| integersFrom 2
