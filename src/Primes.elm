@@ -1,4 +1,4 @@
-module Primes exposing (LazyList, integers, take)
+module Primes exposing (LazyList, filter, integers, take)
 
 
 type LazyList a
@@ -36,3 +36,24 @@ integersFrom head =
             Promise (\_ -> integersFrom <| head + 1)
     in
     Cons head tail
+
+
+filter : (a -> Bool) -> LazyList a -> LazyList a
+filter predicate lazyList =
+    case lazyList of
+        Empty ->
+            Empty
+
+        Promise g ->
+            let
+                generator _ =
+                    filter predicate (g ())
+            in
+            Promise generator
+
+        Cons x xs ->
+            if predicate x then
+                Cons x <| filter predicate xs
+
+            else
+                filter predicate xs
