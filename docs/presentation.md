@@ -176,17 +176,31 @@ Beth receives a message `\(c\)`.
 
 --
 
-1. Beth looks up her **private** key `\(d\)` and `\(n\)` from her public key
+1. Beth looks up her **private** key `\(p, q, d\)`.
 
 --
 
-2. Beth calculate `\(m' = c^{d} \mod n\)`
+2. She calculates `\(n = p \cdot q\)`.
+
+--
+
+3. Beth calculate `\(m' = c^{d} \mod n\)`
 
 --
 
 Notice that
 
 $${\displaystyle m' = c^{d} = (m^{e})^{d} = m^{e\cdot d} = m^{1} = m \mod n}$$
+
+---
+
+## Summary 
+
+RSA depends on numerous algorithms
+
+1. Multiplication
+2. Fast exponentiation
+3. Greatest common divisor 
 
 [rsa]: https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 [prime]: https://en.wikipedia.org/wiki/Prime_number
