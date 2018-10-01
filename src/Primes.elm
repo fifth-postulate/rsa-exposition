@@ -1,4 +1,4 @@
-module Primes exposing (LazyList, primes, take)
+module Primes exposing (LazyList, primes, take, isPrime)
 
 
 type LazyList a
@@ -85,3 +85,15 @@ sieve lazyList =
 primes : LazyList Int
 primes =
     sieve <| integersFrom 2
+
+isPrime : Int -> Bool
+isPrime n =
+    let
+        candidates = List.range 2 n
+
+        divisorOf m d =
+            modBy d m == 0
+
+        divisors = List.filter (divisorOf n) candidates
+    in
+        List.length divisors == 0
