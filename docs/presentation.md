@@ -13,7 +13,7 @@
 
 ## Definition
 
-[RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) is a
+[RSA][rsa] is a
 
 >  public-key cryptosystems and is widely used for secure data transmission. In such a cryptosystem, the encryption key is public and it is different from the decryption key which is kept secret (private).
 
@@ -51,3 +51,17 @@ RSA is composed of the following steps
 # Distribution
 # Encryption
 # Decryption
+
+---
+
+## Factorization
+
+> Given a _composite_ number `\(n\)` find factors `\(p, q\)` such that `\(n = p \cdot q\)`
+
+???
+
+# No known polynomial algorithm
+# O(2^length n)
+# multiplication is polynomial
+
+[rsa]: https://en.wikipedia.org/wiki/RSA_(cryptosystem)
