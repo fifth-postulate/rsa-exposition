@@ -1,4 +1,4 @@
-module RSA exposing (PrivateKey, PublicKey, generate, GenerationError, errorString)
+module RSA exposing (GenerationError, PrivateKey, PublicKey, errorString, generate, encrypt)
 
 import Euler exposing (egcd, gcd)
 import Primes exposing (isPrime)
@@ -68,16 +68,25 @@ type Argument
     | Q
     | Both
 
+
 errorString : GenerationError -> String
 errorString error =
     case error of
         NotPrime argument ->
             case argument of
-                P -> "argument P is not a prime"
+                P ->
+                    "argument P is not a prime"
 
-                Q -> "argument Q is not a prime"
+                Q ->
+                    "argument Q is not a prime"
 
-                Both -> "both arguments are not prime"
+                Both ->
+                    "both arguments are not prime"
 
         NoSuitableE ->
             "can not find a suitable E"
+
+
+encrypt : PublicKey -> Int -> Int
+encrypt { n, e } m =
+    modBy n (m ^ e)
