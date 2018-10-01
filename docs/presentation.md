@@ -168,5 +168,25 @@ Alice transform `\(M\)` into a (list of) integer `\(m\)`.
 
 # Depends on transformation that needs to be agreed upon.
 
+---
+
+## Decryption
+
+Beth receives a message `\(c\)`.
+
+--
+
+1. Beth looks up her **private** key `\(d\)` and `\(n\)` from her public key
+
+--
+
+2. Beth calculate `\(m' = c^{d} \mod n\)`
+
+--
+
+Notice that
+
+$${\displaystyle m' = c^{d} = (m^{e})^{d} = m^{e\cdot d} = m^{1} = m \mod n}$$
+
 [rsa]: https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 [prime]: https://en.wikipedia.org/wiki/Prime_number

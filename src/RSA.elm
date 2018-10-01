@@ -1,4 +1,4 @@
-module RSA exposing (GenerationError, PrivateKey, PublicKey, errorString, generate, encrypt)
+module RSA exposing (GenerationError, PrivateKey, PublicKey, decrypt, encrypt, errorString, generate)
 
 import Euler exposing (egcd, gcd)
 import Primes exposing (isPrime)
@@ -90,3 +90,12 @@ errorString error =
 encrypt : PublicKey -> Int -> Int
 encrypt { n, e } m =
     modBy n (m ^ e)
+
+
+decrypt : PrivateKey -> Int -> Int
+decrypt (PrivateKey { p, q, d }) c =
+    let
+        n =
+            p * q
+    in
+    modBy n (c ^ d)
