@@ -1,12 +1,41 @@
-module Primes exposing (LazyList, primes, take, isPrime)
+module Primes exposing
+    ( primes, LazyList
+    , take, isPrime
+    )
+
+{-| Provides a lazy, infinite list of primes.
 
 
+# Definition
+
+@docs primes, LazyList
+
+
+# Helpers
+
+@docs take, isPrime
+
+The following code snippets will result in the same list. Notice that with the `primes` example we do not need to know the upper bound.
+
+    take 50 primes
+
+returns the same list as
+
+    List.filter isPrime <| List.range 2 230
+
+-}
+
+
+{-| A lazy list. Makes it possible to create infinite lists.
+-}
 type LazyList a
     = Empty
     | Promise (() -> LazyList a)
     | Cons a (LazyList a)
 
 
+{-| Like `List.take` but for `LazyList`.
+-}
 take : Int -> LazyList a -> List a
 take n lazyList =
     if n == 0 then
@@ -82,18 +111,23 @@ sieve lazyList =
             Cons p tail
 
 
+{-| A lazy list of prime numbers.
+-}
 primes : LazyList Int
 primes =
     sieve <| integersFrom 2
 
+{-| Determines if the argument is prime. -}
 isPrime : Int -> Bool
 isPrime n =
     let
-        candidates = List.range 2 n
+        candidates =
+            List.range 2 n
 
         divisorOf m d =
             modBy d m == 0
 
-        divisors = List.filter (divisorOf n) candidates
+        divisors =
+            List.filter (divisorOf n) candidates
     in
-        List.length divisors == 0
+    List.length divisors == 0
