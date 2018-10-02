@@ -3,7 +3,7 @@
     "name": "HAN-ASD-DT/rsa",
     "summary": "A toy implementation of the RSA crypto-system.",
     "license": "MIT",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "exposed-modules": [
         "RSA",
         "Primes"
