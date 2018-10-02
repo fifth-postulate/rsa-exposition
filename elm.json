@@ -3,10 +3,7 @@
     "name": "HAN-ASD-DT/rsa",
     "summary": "A toy implementation of the RSA crypto-system.",
     "license": "MIT",
-    "version": "1.0.0",
-    "source-directories": [
-        "src"
-    ],
+    "version": "1.0.1",
     "exposed-modules": [
         "RSA",
         "Primes"
@@ -16,6 +13,5 @@
         "elm/core": "1.0.0 <= v < 2.0.0",
         "elm/html": "1.0.0 <= v < 2.0.0"
     },
-    "test-dependencies": {
-    }
+    "test-dependencies": {}
 }
