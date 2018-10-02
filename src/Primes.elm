@@ -122,7 +122,7 @@ isPrime : Int -> Bool
 isPrime n =
     let
         candidates =
-            List.range 2 n
+            List.range 1 n
 
         divisorOf m d =
             modBy d m == 0
@@ -130,4 +130,4 @@ isPrime n =
         divisors =
             List.filter (divisorOf n) candidates
     in
-    List.length divisors == 0
+    List.length divisors == 2
