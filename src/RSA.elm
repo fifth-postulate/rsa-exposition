@@ -90,8 +90,14 @@ generateWithPrimes p q =
             let
                 ( _, d, _ ) =
                     egcd e phi
+
+                positiveD =
+                    if d < 0 then
+                        d + phi
+                    else
+                        d
             in
-            Ok ( { n = n, e = e }, PrivateKey { p = p, q = q, d = d, phi = phi } )
+            Ok ( { n = n, e = e }, PrivateKey { p = p, q = q, d = positiveD, phi = phi } )
 
         Nothing ->
             Err NoSuitableE
