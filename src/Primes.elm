@@ -24,6 +24,14 @@ returns the same list as
 
     List.filter isPrime <| List.range 2 230
 
+# Primality Test
+@docs IsPrime, isProbablePrime
+
+the `isPrime` function is expansive. Especially for large numbers you want to avoid using it. Instead you want to check if a number is a probably prime.
+
+    isProbablyPrime 52439
+
+Will answer `Composite <| Just 41`
 -}
 
 
@@ -143,7 +151,7 @@ A number is either a `Prime`, a `Composite` number or a `Probable` prime.
 -}
 type IsPrime
     = Prime
-    | Composite Int
+    | Composite (Maybe Int)
     | Probable
 
 
@@ -204,7 +212,7 @@ smallPrimeDivisors n =
             if d == n then
                 Prime
             else
-                Composite d
+                Composite <| Just d
 
         Nothing ->
             Probable
