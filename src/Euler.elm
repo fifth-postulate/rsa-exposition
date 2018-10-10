@@ -1,6 +1,6 @@
 module Euler exposing (egcd, gcd)
 
-
+{-| Determines the greatest common divisor. -}
 gcd : Int -> Int -> Int
 gcd a b =
     let
@@ -9,7 +9,7 @@ gcd a b =
     in
     d
 
-
+{-| Determines the greatest common divisor `g` and integers `s, t` such that `g = s*a + t*b`. -}
 egcd : Int -> Int -> ( Int, Int, Int )
 egcd a b =
     extended (HexTuple a b 1 0 0 1)
